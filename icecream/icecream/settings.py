@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'mailsender.apps.MailsenderConfig',
     'home.apps.HomeConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -129,3 +130,8 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
     
 ]
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'mtest01311@gmail.com'
+EMAIL_HOST_PASSWORD = 'zblgilbbtqpudwdl'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponse
 from datetime import datetime
 from home.models import contact
 from django.contrib import messages
+from django.core.mail import send_mail
 
 # Create your views here.
 def index(request):
@@ -12,6 +13,22 @@ def about(request):
 
 def services(request):
     return render(request, 'service.html')
+
+def mailsender(request):
+    if request.method == "POST":
+        sub = request.POST.get('subject')
+        email1 = request.POST.get('email')
+        msg = request.POST.get('message')
+        print(email1,sub,msg)
+        
+        send_mail(
+            sub,msg,'mtest01311@gmail.com',
+            [email1,'rohan.inamdar222@gmail.com','kavin.sundarr@gmail.com']
+        )
+        HttpResponse(" Mail Sent !")
+        messages.success(request, 'Your message has been sent!')
+    return render(request,'mailsender.html')
+    
 
 def contact(request):
     if request.method == "POST":

@@ -5,6 +5,8 @@ from home import views
 urlpatterns = [
     path("",views.index,name='Home'),
     path("about",views.about,name='About'),
-    path("services",views.services,name='Services'),
+    path("menu",views.services,name='Services'),
     path("contact",views.contact,name='Contact'),
+    path("mailsender",views.mailsender,name='Mailsender')
+    #path('mailsender',include('mailsender.urls'))
 ]
