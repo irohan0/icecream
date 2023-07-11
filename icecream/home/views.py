@@ -17,13 +17,13 @@ def services(request):
 def mailsender(request):
     if request.method == "POST":
         sub = request.POST.get('subject')
-        email1 = request.POST.get('email')
+        
         msg = request.POST.get('message')
-        print(email1,sub,msg)
+        print(sub,msg)
         
         send_mail(
             sub,msg,'mtest01311@gmail.com',
-            [email1,'rohan.inamdar222@gmail.com','kavin.sundarr@gmail.com']
+            ['rohan.inamdar222@gmail.com','kavin.sundarr@gmail.com']
         )
         HttpResponse(" Mail Sent !")
         messages.success(request, 'Your message has been sent!')
